@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"name": "Pub Root",
+			"path": "."
+		},
+		{
+			"name": "src",
+			"path": "./src"
+		},
+		{
+			"name": "public",
+			"path": "./public"
+		},
+	],
+	"settings": {}
+}
