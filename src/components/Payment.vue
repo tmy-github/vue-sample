@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, reactive, computed, watch, toRefs } from 'vue'
+import { ref, reactive, computed, watch, toRefs, onBeforeMount, onUpdated, onMounted } from 'vue'
 
 const itemName2 = "Bike";
 const price2 = 40000;
@@ -22,17 +22,6 @@ const clear = () => {
 
 const budget = 5000;
 
-// const priceLabel = computed((): string => {
-//     if (item1.price > (budget * 2)) {
-//         return "Toooo Expensive ...";
-//     }
-//     else if (item1.price > budget) {
-//         return "Too Expensive ...";
-//     }
-//     else {
-//         return item1.price + ' yen';
-//     }
-// });
 const priceLabel = ref<string>(item1.price + " yen");
 const { price } = toRefs(item1);
 watch(price, () => {
@@ -45,6 +34,18 @@ watch(price, () => {
     else {
         priceLabel.value = price.value + ' yen';
     }
+});
+
+onBeforeMount(() => {
+    console.log(`before mount`);
+});
+
+onMounted(() => {
+    console.log(`mounted`);
+});
+
+onUpdated(() => {
+    console.log(`update`);
 });
 </script>
 
